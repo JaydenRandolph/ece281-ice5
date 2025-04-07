@@ -103,7 +103,7 @@ begin
         w_reset <= '1';  wait for k_clk_period;
             assert w_floor = x"2" report "bad reset" severity failure; 
         -- clear reset
-		
+		w_reset <= '0';
 		-- active UP signal
 		w_up_down <= '1'; 
 		
@@ -124,6 +124,8 @@ begin
         -- go all the way down DOWN (how many clock cycles should that take?)
         w_up_down <= '0'; 
   
+        --makes a pretty graph
+        assert true = false report "Runs good!" severity failure;
 		  	
 		wait; -- wait forever
 	end process;	
